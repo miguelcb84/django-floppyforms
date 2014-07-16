@@ -589,11 +589,13 @@ class SelectDateWidget(forms.Widget):
     year_field = '%s_year'
     template_name = 'floppyforms/select_date.html'
 
-    def __init__(self, attrs=None, years=None, required=True):
+    def __init__(self, attrs=None, years=None, required=True, template_name=None):
         # years is an optional list/tuple of years to use in the
         # "year" select box.
         self.attrs = attrs or {}
         self.required = required
+        if template_name is not None:
+            self.template_name = template_name
         if years:
             self.years = years
         else:
